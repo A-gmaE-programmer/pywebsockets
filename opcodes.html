@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>python websockets</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <a href="canvas.html">Cool Canvas</a>
+    <h1>"Opcodes"</h1>
+    <ul id="opcodes"></ul>
+    <script>
+    let opcodes = {
+      rect     : 0x01,
+      rect_line: 0x02,
+      clear    : 0x03,
+
+      beginPath: 0x10,
+      closePath: 0x11,
+      stroke   : 0x12,
+      fill     : 0x13,
+
+      moveTo   : 0x20,
+      lineTo   : 0x21,
+      arc      : 0x22,
+      arcTo    : 0x23,
+    }
+    const list = document.getElementById('opcodes')
+    for (const [key, value] of Object.entries(opcodes)) {
+      let li = document.createElement('li')
+      li.appendChild(document.createTextNode(`0x${value.toString(16)}: ${key}`))
+      list.appendChild(li)
+    }
+    </script>
+</html>
+
